@@ -57,7 +57,7 @@ const Stopwatch = () => {
           </button>
         ) : isPaused ? (
           <button className="column-left__button" onClick={handlePause}>
-            Pauza
+            Pauziraj
           </button>
         ) : (
           <button className="column-left__button" onClick={handleResume}>

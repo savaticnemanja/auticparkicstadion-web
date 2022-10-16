@@ -3,6 +3,7 @@ import './index.scss';
 import {
   singleSeater1,
   singleSeater2,
+  singleSeater3,
   twoSeater1,
   twoSeater2,
   twoSeater3,
@@ -24,16 +25,21 @@ function App() {
     },
     {
       id: 3,
-      type: 2,
-      img: twoSeater1,
+      type: 1,
+      img: singleSeater3,
     },
     {
       id: 4,
       type: 2,
-      img: twoSeater2,
+      img: twoSeater1,
     },
     {
       id: 5,
+      type: 2,
+      img: twoSeater2,
+    },
+    {
+      id: 6,
       type: 2,
       img: twoSeater3,
     },
@@ -45,7 +51,7 @@ function App() {
         <div className="column-wrapper">
           <div className="column-left">
             <div className="column-left__car">
-              <p className="top-heading">Za jednu osobu (40 rsd/min)</p>
+              <p className="top-heading">JEDNOSED (40 rsd/min)</p>
             </div>
             {vehicles
               ?.filter((el) => el.type === 1)
@@ -58,7 +64,7 @@ function App() {
           </div>
           <div className="column-right">
             <div className="column-right__car">
-              <p className="top-heading">Za dve osobe (50 rsd/min)</p>
+              <p className="top-heading">DVOSED (50 rsd/min)</p>
             </div>
             {vehicles
               ?.filter((el) => el.type === 2)
