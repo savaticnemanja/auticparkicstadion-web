@@ -47,7 +47,7 @@ const Stopwatch = () => {
       <div className="column-left__car-timer">
         <p>{formatTime()}</p>
         <p className="column-left__total-price">
-          Cena: {Math.floor(timer / 60) * 40} rsd
+          Cena: {Math.ceil(timer / 60) * 40} rsd
         </p>
       </div>
       <div className="column-left__car-controls">
