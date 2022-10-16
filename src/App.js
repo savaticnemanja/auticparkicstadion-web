@@ -107,12 +107,14 @@ function App() {
               ))}
           </div>
         </div>
-        {/* <div className="bottom-bar">
+        <div className="bottom-bar">
           <button onClick={() => document.body.requestFullscreen()}>
-            Fullscreen
+            POVEĆAJ EKRAN
           </button>
-          <button onClick={() => document.exitFullscreen()}>Fullscreen</button>
-        </div> */}
+          <button onClick={() => document.exitFullscreen()}>
+            SMANJI EKRAN
+          </button>
+        </div>
       </div>
     </>
   );

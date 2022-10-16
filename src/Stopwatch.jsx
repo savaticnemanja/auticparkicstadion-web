@@ -71,27 +71,6 @@ const Stopwatch = () => {
         </button>
       </div>
     </>
-
-    // <div className="app">
-    //   <div className="stopwatch-card">
-    //     <p>{formatTime()}</p>
-    //     <div className="buttons">
-    //       {!isActive && !isPaused ? (
-    //         <button onClick={handleStart}>Start</button>
-    //       ) : isPaused ? (
-    //         <button onClick={handlePause}>Pauza</button>
-    //       ) : (
-    //         <button onClick={handleResume}>Nastavi</button>
-    //       )}
-    //       <button onClick={handleReset} disabled={!isActive}>
-    //         Reset
-    //       </button>
-    //       <div className="column-left__car-controls">
-    //         <p>Cena: {(Math.floor(timer / 60) % 60) * 40} rsd</p>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 
