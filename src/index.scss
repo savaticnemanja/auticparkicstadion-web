@@ -14,8 +14,8 @@ body {
 
 .wrapper {
   width: 100%;
-  height: 100vh;
   background-image: url('./assets/background.png');
+  background-repeat: repeat;
   background-blend-mode: darken;
   background-color: #00000055;
 
@@ -92,8 +92,20 @@ body {
 }
 .bottom-bar {
   width: 100%;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   display: flex;
   justify-content: space-between;
+}
+
+@media only screen and (max-width: 768px) {
+  .column-wrapper {
+    flex-direction: column;
+  }
+  .column-left {
+    width: 100% !important;
+  }
+  .column-right {
+    width: 100% !important;
+  }
 }
