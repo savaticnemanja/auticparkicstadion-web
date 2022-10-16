@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import moment from 'moment';
 import './index.scss';
 import {
   singleSeater1,
@@ -9,6 +8,7 @@ import {
   twoSeater3,
 } from './assets/index';
 import StopWatch from './Stopwatch';
+import StopWatch2 from './Stopwatch2';
 
 function App() {
   const [stop, setStop] = React.useState(false);
@@ -17,31 +17,26 @@ function App() {
       id: 1,
       type: 1,
       img: singleSeater1,
-      price: 0,
     },
     {
       id: 2,
       type: 1,
       img: singleSeater2,
-      price: 0,
     },
     {
       id: 3,
       type: 2,
       img: twoSeater1,
-      price: 0,
     },
     {
       id: 4,
       type: 2,
       img: twoSeater2,
-      price: 0,
     },
     {
       id: 5,
       type: 2,
       img: twoSeater3,
-      price: 0,
     },
   ]);
 
@@ -87,6 +82,9 @@ function App() {
       <div className="wrapper">
         <div className="column-wrapper">
           <div className="column-left">
+            <div className="column-left__car">
+              <p className="top-heading">Za jednu osobu (40 rsd/min)</p>
+            </div>
             {vehicles
               ?.filter((el) => el.type === 1)
               .map((el) => (
@@ -97,12 +95,15 @@ function App() {
               ))}
           </div>
           <div className="column-right">
+            <div className="column-right__car">
+              <p className="top-heading">Za dve osobe (50 rsd/min)</p>
+            </div>
             {vehicles
               ?.filter((el) => el.type === 2)
               .map((el) => (
                 <div key={el.id} className="column-left__car">
                   <img src={el.img} alt="" />
-                  <StopWatch />
+                  <StopWatch2 />
                 </div>
               ))}
           </div>
