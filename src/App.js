@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './index.scss';
 import {
   singleSeater1,
@@ -11,8 +11,7 @@ import StopWatch from './Stopwatch';
 import StopWatch2 from './Stopwatch2';
 
 function App() {
-  const [stop, setStop] = React.useState(false);
-  const [vehicles, setVehicles] = useState([
+  const vehicles = [
     {
       id: 1,
       type: 1,
@@ -38,44 +37,7 @@ function App() {
       type: 2,
       img: twoSeater3,
     },
-  ]);
-
-  function stopTimer(status) {
-    setStop(status);
-  }
-  const handleTimerStart = (id) => {
-    const newState = vehicles.map((el) => {
-      if (el.id === id) {
-        return {
-          ...el,
-          startTime: new Date(),
-        };
-      }
-      return el;
-    });
-    setVehicles(newState);
-  };
-
-  const handleTimerStop = (id) => {
-    const newState = vehicles.map((el) => {
-      if (el.id === id) {
-        return {
-          ...el,
-          endTime: new Date(),
-        };
-      }
-      return el;
-    });
-    setVehicles(newState);
-  };
-
-  const handleTimerReset = () => {
-    console.log('test');
-  };
-
-  useEffect(() => {
-    console.log(vehicles);
-  }, [vehicles]);
+  ];
 
   return (
     <>
