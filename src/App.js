@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import './index.scss';
 import {
@@ -11,9 +11,11 @@ import {
 } from './assets/index';
 import StopWatch from './Stopwatch';
 import StopWatch2 from './Stopwatch2';
+import EndDayDialog from './EndDayDialog';
 
 function App() {
   const [history, setHistory] = useState([]);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const vehicles = [
     {
       id: 1,
@@ -58,8 +60,6 @@ function App() {
       `Naziv: ${el.name}, Vreme iznajmljivanja: ${el.time} minuta, Ukupna cena: <b>${el.price}rsd</b><br>`
   );
 
-  console.log(mailBody);
-
   const totalEarnings = `${history?.reduce(
     (acc, el) => acc + el?.price,
     0
@@ -89,64 +89,70 @@ function App() {
       );
   };
 
-  useEffect(() => {}, [history]);
-
   return (
-    <div className="wrapper">
-      <div className="column-wrapper">
-        <div className="column-left">
-          <div className="column-left__car">
-            <p className="top-heading">JEDNOSED (40 rsd/min)</p>
+    <>
+      {isDialogOpen && (
+        <EndDayDialog sendEmail={sendEmail} setIsDialogOpen={setIsDialogOpen} />
+      )}
+      <div className="wrapper">
+        <div className="column-wrapper">
+          <div className="column-left">
+            <div className="column-left__car">
+              <p className="top-heading">JEDNOSED (40 rsd/min)</p>
+            </div>
+            {vehicles
+              ?.filter((el) => el.type === 1)
+              .map((el) => (
+                <div key={el.id} className="column-left__car">
+                  <img src={el.img} alt="" />
+                  <StopWatch
+                    vehicleName={el.name}
+                    history={history}
+                    setHistory={setHistory}
+                  />
+                </div>
+              ))}
           </div>
-          {vehicles
-            ?.filter((el) => el.type === 1)
-            .map((el) => (
-              <div key={el.id} className="column-left__car">
-                <img src={el.img} alt="" />
-                <StopWatch
-                  vehicleName={el.name}
-                  history={history}
-                  setHistory={setHistory}
-                />
-              </div>
-            ))}
+          <div className="column-right">
+            <div className="column-right__car">
+              <p className="top-heading">DVOSED (50 rsd/min)</p>
+            </div>
+            {vehicles
+              ?.filter((el) => el.type === 2)
+              .map((el) => (
+                <div key={el.id} className="column-left__car">
+                  <img src={el.img} alt="" />
+                  <StopWatch2
+                    vehicleName={el.name}
+                    history={history}
+                    setHistory={setHistory}
+                  />
+                </div>
+              ))}
+          </div>
         </div>
-        <div className="column-right">
-          <div className="column-right__car">
-            <p className="top-heading">DVOSED (50 rsd/min)</p>
-          </div>
-          {vehicles
-            ?.filter((el) => el.type === 2)
-            .map((el) => (
-              <div key={el.id} className="column-left__car">
-                <img src={el.img} alt="" />
-                <StopWatch2
-                  vehicleName={el.name}
-                  history={history}
-                  setHistory={setHistory}
-                />
-              </div>
-            ))}
+        <div className="bottom-bar">
+          <button
+            className="bottom-bar__button"
+            onClick={() => document.body.requestFullscreen()}
+          >
+            POVEĆAJ EKRAN
+          </button>
+          <button
+            onClick={() => setIsDialogOpen(true)}
+            className="bottom-bar__button"
+          >
+            KRAJ RADNOG VREMENA
+          </button>
+          <button
+            className="bottom-bar__button"
+            onClick={() => document.exitFullscreen()}
+          >
+            SMANJI EKRAN
+          </button>
         </div>
       </div>
-      <div className="bottom-bar">
-        <button
-          className="bottom-bar__button"
-          onClick={() => document.body.requestFullscreen()}
-        >
-          POVEĆAJ EKRAN
-        </button>
-        <button onClick={sendEmail} className="bottom-bar__button">
-          KRAJ RADNOG VREMENA
-        </button>
-        <button
-          className="bottom-bar__button"
-          onClick={() => document.exitFullscreen()}
-        >
-          SMANJI EKRAN
-        </button>
-      </div>
-    </div>
+    </>
   );
 }
 

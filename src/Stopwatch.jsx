@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 
 const Stopwatch = ({ vehicleName, history, setHistory }) => {
   const [timer, setTimer] = useState(0);
@@ -49,10 +49,6 @@ const Stopwatch = ({ vehicleName, history, setHistory }) => {
 
     return `${getHours} : ${getMinutes} : ${getSeconds}`;
   };
-
-  useEffect(() => {
-    console.log(history);
-  }, [history]);
 
   return (
     <>

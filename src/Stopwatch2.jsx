@@ -35,7 +35,7 @@ const Stopwatch2 = ({ vehicleName, history, setHistory }) => {
       ...history,
       {
         name: vehicleName,
-        price: Math.ceil(timer / 60) * 40,
+        price: Math.ceil(timer / 60) * 50,
         time: Math.ceil(timer / 60),
       },
     ]);
