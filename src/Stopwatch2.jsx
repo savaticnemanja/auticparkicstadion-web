@@ -54,9 +54,11 @@ const Stopwatch2 = ({ vehicleName, history, setHistory }) => {
     <>
       <div className="column-left__car-timer">
         <p>{formatTime()}</p>
-        <p className="column-left__total-price">
-          Cena: {Math.ceil(timer / 60) * 50} rsd
-        </p>
+        {!isPaused && isActive && (
+          <p className="column-left__total-price">
+            Cena: {Math.ceil(timer / 60) * 50} rsd
+          </p>
+        )}
       </div>
       <div className="column-left__car-controls">
         {!isActive && !isPaused ? (
