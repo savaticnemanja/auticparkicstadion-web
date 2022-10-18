@@ -1,12 +1,12 @@
 import React, { useState, useRef } from 'react';
 
-const Stopwatch2 = () => {
+const Stopwatch2 = ({ vehicleName, history, setHistory }) => {
   const [timer, setTimer] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const increment = useRef(null);
 
-  const handleStart = () => {
+  const handleStart = ({ history, setHistory }) => {
     setIsActive(true);
     setIsPaused(true);
     increment.current = setInterval(() => {
@@ -31,6 +31,14 @@ const Stopwatch2 = () => {
     setIsActive(false);
     setIsPaused(false);
     setTimer(0);
+    setHistory([
+      ...history,
+      {
+        name: vehicleName,
+        price: Math.ceil(timer / 60) * 40,
+        time: Math.ceil(timer / 60),
+      },
+    ]);
   };
 
   const formatTime = () => {

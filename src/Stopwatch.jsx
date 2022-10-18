@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
-const Stopwatch = () => {
+const Stopwatch = ({ vehicleName, history, setHistory }) => {
   const [timer, setTimer] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
@@ -31,6 +31,14 @@ const Stopwatch = () => {
     setIsActive(false);
     setIsPaused(false);
     setTimer(0);
+    setHistory([
+      ...history,
+      {
+        name: vehicleName,
+        price: Math.ceil(timer / 60) * 40,
+        time: Math.ceil(timer / 60),
+      },
+    ]);
   };
 
   const formatTime = () => {
@@ -41,6 +49,10 @@ const Stopwatch = () => {
 
     return `${getHours} : ${getMinutes} : ${getSeconds}`;
   };
+
+  useEffect(() => {
+    console.log(history);
+  }, [history]);
 
   return (
     <>
