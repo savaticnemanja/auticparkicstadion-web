@@ -55,18 +55,12 @@ function App() {
     },
   ];
 
-  const mailBody = history.map(
-    (el) =>
-      `Naziv: ${el.name}, Vreme iznajmljivanja: ${el.time} minuta, Ukupna cena: <b>${el.price}rsd</b><br>`
-  );
-
   const totalEarnings = `${history?.reduce(
     (acc, el) => acc + el?.price,
     0
   )}rsd`;
 
   const templateParams = {
-    message: [...mailBody],
     date: new Date().toISOString().split('T')[0],
     totalEarnings: totalEarnings,
   };
