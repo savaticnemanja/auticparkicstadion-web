@@ -50,13 +50,15 @@ const Stopwatch2 = ({ vehicleName, history, setHistory }) => {
     return `${getHours} : ${getMinutes} : ${getSeconds}`;
   };
 
+  const seconds = timer % 60 <= 5 ? 0 : 50;
+
   return (
     <>
       <div className="column-left__car-timer">
         <p>{formatTime()}</p>
         {!isPaused && isActive && (
           <p className="column-left__total-price">
-            Cena: {Math.ceil(timer / 60) * 50} rsd
+            Cena: {Math.floor(timer / 60) * 50 + seconds}rsd
           </p>
         )}
       </div>
