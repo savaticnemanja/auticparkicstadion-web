@@ -95,7 +95,7 @@ function App() {
                 <div className="column-wrapper">
                     <div className="column-left">
                         <div className="column-left__car">
-                            <p className="top-heading">JEDNOSED (40 rsd/min)</p>
+                            <p className="top-heading">JEDNOSED (50 rsd/min)</p>
                         </div>
                         {vehicles
                             ?.filter((el) => el.type === 1)
