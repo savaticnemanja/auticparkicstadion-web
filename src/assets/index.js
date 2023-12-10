@@ -2,6 +2,11 @@ export { default as singleSeater1 } from './singleseater-1.png';
 export { default as singleSeater2 } from './singleseater-2.png';
 export { default as singleSeater3 } from './singleseater-3.png';
 export { default as singleSeater4 } from './singleseater-4.png';
+export { default as singleSeater5 } from './singleseater-5.png';
+export { default as singleSeater6 } from './singleseater-6.png';
+export {default as empty1} from './empty-1.png';
+export {default as empty2} from './empty-2.png';
+export {default as empty3} from './empty-3.png';
 export { default as twoSeater1 } from './twoseater-1.png';
 export { default as twoSeater2 } from './twoseater-2.png';
-export { default as twoSeater3 } from './twoseater-3.png';
+export {default as twoSeaterIcon} from './twoseater-icon.png'

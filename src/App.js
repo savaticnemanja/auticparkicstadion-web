@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import "./index.scss";
 import {
+  empty1,
+  empty2,
+  empty3,
   singleSeater1,
   singleSeater2,
   singleSeater3,
   singleSeater4,
+  singleSeater5,
+  singleSeater6,
   twoSeater1,
   twoSeater2,
-  twoSeater3,
 } from "./assets/index";
 import StopWatch from "./Stopwatch";
 import StopWatch2 from "./Stopwatch2";
@@ -44,21 +48,45 @@ function App() {
     },
     {
       id: 5,
+      type: 1,
+      img: singleSeater5,
+      name: "Motor",
+    },
+    {
+      id: 6,
+      type: 1,
+      img: singleSeater6,
+      name: "Motor",
+    },
+    {
+      id: 6,
       type: 2,
       img: twoSeater1,
       name: "BMW X6",
     },
     {
-      id: 6,
+      id: 7,
       type: 2,
       img: twoSeater2,
       name: "Mercedes GLC AMG",
     },
     {
-      id: 7,
+      id: 8,
       type: 2,
-      img: twoSeater3,
-      name: "Mercedes GLS 63",
+      img: empty1,
+      name: "Mercedes GLC AMG",
+    },
+    {
+      id: 9,
+      type: 2,
+      img: empty2,
+      name: "Mercedes GLC AMG",
+    },
+    {
+      id: 10,
+      type: 2,
+      img: empty3,
+      name: "Mercedes GLC AMG",
     },
   ];
 
@@ -75,10 +103,10 @@ function App() {
   const sendEmail = () => {
     emailjs
       .send(
-        "service_lpjbk0x",
+        "service_479xn4w",
         "template_wg0omcs",
         templateParams,
-        "ScsG4p94Aq4ACY0h4"
+        "yXqwmaxm-PpofwIqK"
       )
       .then(
         (response) => {
@@ -99,7 +127,7 @@ function App() {
         <div className="column-wrapper">
           <div className="column-left">
             <div className="column-left__car">
-              <p className="top-heading">50 rsd/min</p>
+              <p className="top-heading">Jednosed - 50 rsd/min</p>
             </div>
             {vehicles
               ?.filter((el) => el.type === 1)
@@ -116,7 +144,7 @@ function App() {
           </div>
           <div className="column-right">
             <div className="column-right__car">
-              <p className="top-heading">50 rsd/min</p>
+              <p className="top-heading">Dvosed - 65 rsd/min</p>
             </div>
             {vehicles
               ?.filter((el) => el.type === 2)
